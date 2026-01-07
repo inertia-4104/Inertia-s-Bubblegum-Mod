@@ -11,6 +11,18 @@ public class ModItems {
 
     public static final DeferredItem<Item> REDGUM = ITEMS.register("redgum",
             () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> BLUEGUM = ITEMS.register("bluegum",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> GREENGUM = ITEMS.register("greengum",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> PINKGUM = ITEMS.register("pinkgum",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> PURPLEGUM = ITEMS.register("purplegum",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> ORANGEGUM = ITEMS.register("orangegum",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> YELLOWGUM = ITEMS.register("yellowgum",
+            () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

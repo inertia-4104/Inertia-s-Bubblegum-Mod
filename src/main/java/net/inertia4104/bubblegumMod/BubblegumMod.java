@@ -64,8 +64,14 @@ public class BubblegumMod {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
     if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-        event.accept(ModItems.REDGUM);}
-    }
+        event.accept(ModItems.REDGUM);
+        event.accept(ModItems.BLUEGUM);
+        event.accept(ModItems.GREENGUM);
+        event.accept(ModItems.PINKGUM);
+        event.accept(ModItems.ORANGEGUM);
+        event.accept(ModItems.PURPLEGUM);
+        event.accept(ModItems.YELLOWGUM);
+    }}
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
