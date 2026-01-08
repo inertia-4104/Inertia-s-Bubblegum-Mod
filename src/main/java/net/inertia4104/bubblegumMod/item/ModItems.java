@@ -10,7 +10,7 @@ public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(BubblegumMod.MODID);
 
     public static final DeferredItem<Item> REDGUM = ITEMS.register("redgum",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().food(FoodItemProperties.REDGUM)));
     public static final DeferredItem<Item> BLUEGUM = ITEMS.register("bluegum",
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> GREENGUM = ITEMS.register("greengum",
