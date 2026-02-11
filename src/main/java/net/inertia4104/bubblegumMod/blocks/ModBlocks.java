@@ -1,6 +1,7 @@
 package net.inertia4104.bubblegumMod.blocks;
 
 import net.inertia4104.bubblegumMod.BubblegumMod;
+import net.inertia4104.bubblegumMod.blocks.custom.MachineBlock;
 import net.inertia4104.bubblegumMod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -17,7 +18,7 @@ public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
             DeferredRegister.createBlocks(BubblegumMod.MODID);
 
-    public static final DeferredBlock<Block> MACHINE_TEST = registerBlock("machine_test_block", () -> new Block(BlockBehaviour.Properties.of()
+    public static final DeferredBlock<Block> MACHINE = registerBlock("machineblock", () -> new MachineBlock(BlockBehaviour.Properties.of()
             .strength(4f).sound(SoundType.COPPER_BULB)));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block){
