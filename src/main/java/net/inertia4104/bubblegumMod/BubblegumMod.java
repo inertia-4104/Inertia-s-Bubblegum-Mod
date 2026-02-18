@@ -1,6 +1,6 @@
 package net.inertia4104.bubblegumMod;
 
-import net.inertia4104.bubblegumMod.blocks.ModBlocks;
+import net.inertia4104.bubblegumMod.block.ModBlocks;
 import net.inertia4104.bubblegumMod.item.ModItems;
 import org.slf4j.Logger;
 
@@ -60,7 +60,7 @@ public class BubblegumMod {
         event.accept(ModItems.YELLOWGUM);
     }
     if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
-        event.accept(ModBlocks.MACHINE);}
+        event.accept(ModBlocks.BUBBLEGUMMACHINE);}
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
