@@ -18,8 +18,8 @@ public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
             DeferredRegister.createBlocks(BubblegumMod.MODID);
 
-    public static final DeferredBlock<Block> BUBBLEGUMMACHINE = registerBlock("bubblegummachine", () -> new MachineBlock(BlockBehaviour.Properties.of()
-            .strength(4f).sound(SoundType.COPPER_BULB).noOcclusion()));
+    public static final DeferredBlock<Block> BUBBLEGUMMACHINE = registerBlock("bubblegummachine",
+            () -> new MachineBlock(BlockBehaviour.Properties.of().noOcclusion()));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block){
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
