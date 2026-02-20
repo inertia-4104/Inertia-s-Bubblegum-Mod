@@ -1,19 +1,20 @@
 {
   "variants": {
    "facing=north": {
-     "model": "inertiasbubblegummod:block/bubblegummachine"
+     "model": "inertiasbubblegummod:block/bubblegummachine",
+     "y": 0
    },
     "facing=south": {
-      "model": "inertiasbubblegummod:block/bubblegummachine",
-      "y": "180"
+      "model": "inertiasbubblegummod:block/bubblegumm achine",
+      "y": 180
     },
     "facing=east": {
       "model": "inertiasbubblegummod:block/bubblegummachine",
-      "y": "90"
+      "y": 90
     },
     "facing=west": {
       "model": "inertiasbubblegummod:block/bubblegummachine",
-      "y": "270"
+      "y": 270
     }
   }
 }

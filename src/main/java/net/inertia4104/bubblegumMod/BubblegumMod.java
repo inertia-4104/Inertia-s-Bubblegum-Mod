@@ -1,6 +1,7 @@
 package net.inertia4104.bubblegumMod;
 
 import net.inertia4104.bubblegumMod.block.ModBlocks;
+import net.inertia4104.bubblegumMod.item.ModCreativeModeTabs;
 import net.inertia4104.bubblegumMod.item.ModItems;
 import org.slf4j.Logger;
 
@@ -33,6 +34,9 @@ public class BubblegumMod {
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
+
+        ModCreativeModeTabs.register(modEventBus);
+
         NeoForge.EVENT_BUS.register(this);
 
         ModItems.register(modEventBus);
