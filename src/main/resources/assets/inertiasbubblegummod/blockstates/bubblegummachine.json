@@ -5,7 +5,7 @@
      "y": 0
    },
     "facing=south": {
-      "model": "inertiasbubblegummod:block/bubblegumm achine",
+      "model": "inertiasbubblegummod:block/bubblegummachine",
       "y": 180
     },
     "facing=east": {
