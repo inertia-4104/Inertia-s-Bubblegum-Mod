@@ -1,6 +1,8 @@
 package net.inertia4104.bubblegumMod.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.inertia4104.bubblegumMod.block.ModBlocks;
+import net.inertia4104.bubblegumMod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -35,8 +37,10 @@ public class MachineBlock extends BaseEntityBlock {
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (stack.is(Items.IRON_NUGGET))
         {
-            return InteractionResult.SUCCESS.heldItemTransformedTo(new ItemStack((Items.BAKED_POTATO)));
+            player.getInventory().removeItem(player.getInventory().selected, 1);
+            player.addItem(new ItemStack(ModItems.REDGUM.get()));
         }
+        return ItemInteractionResult.FAIL;
     }
 
     @Override
