@@ -1,6 +1,9 @@
 package net.inertia4104.bubblegumMod.block.custom;
 
 
+import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
@@ -58,6 +61,8 @@ public class MachineBlock extends HorizontalDirectionalBlock {
             } else if (stackrandom == 7) {
                 player.addItem(new ItemStack(ModItems.ORANGEGUM.get()));
             }
+            ((ServerLevel) level).sendParticles(new BlockParticleOption(ParticleTypes.BLOCK, state.getBlock().defaultBlockState()),
+                    pos.getX() + 0.2, pos.getY() + 0.2, pos.getZ(), 90, 0,0,0, 1);
             return ItemInteractionResult.SUCCESS;
         }
         return ItemInteractionResult.FAIL;
