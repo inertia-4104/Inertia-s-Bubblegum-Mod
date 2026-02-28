@@ -26,6 +26,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.PURPLEGUM);
                         output.accept(ModItems.YELLOWGUM);
                         output.accept(ModBlocks.BUBBLEGUMMACHINE);
+                        output.accept(ModBlocks.GASHAPON);
 
                     }).build());
 

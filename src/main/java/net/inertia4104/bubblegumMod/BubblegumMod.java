@@ -64,7 +64,9 @@ public class BubblegumMod {
         event.accept(ModItems.YELLOWGUM);
     }
     if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
-        event.accept(ModBlocks.BUBBLEGUMMACHINE);}
+        event.accept(ModBlocks.BUBBLEGUMMACHINE);
+        event.accept(ModBlocks.GASHAPON);
+    }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
