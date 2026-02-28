@@ -1,5 +1,10 @@
 package net.inertia4104.bubblegumMod.block.custom;
 
+
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.tick.ServerTickEvent;
+import java.util.Random;
 import com.mojang.serialization.MapCodec;
 import net.inertia4104.bubblegumMod.block.ModBlocks;
 import net.inertia4104.bubblegumMod.item.ModItems;
@@ -22,6 +27,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
+
 public class MachineBlock extends HorizontalDirectionalBlock {
     public static final MapCodec<MachineBlock> CODEC = simpleCodec(MachineBlock::new);
     private static final VoxelShape SHAPE = Block.box(3.0, 0.0, 3.0, 13.0, 16.0, 13.0);
@@ -32,10 +38,27 @@ public class MachineBlock extends HorizontalDirectionalBlock {
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+        Random random = new Random();
+        int stackrandom = random.nextInt(7 - 1 + 1) + 1;
         if (stack.is(Items.IRON_NUGGET))
         {
             player.getInventory().removeItem(player.getInventory().selected, 1);
-            player.addItem(new ItemStack(ModItems.REDGUM.get()));
+            if (stackrandom == 1) {
+                player.addItem(new ItemStack(ModItems.REDGUM.get()));
+            } else if (stackrandom == 2) {
+                player.addItem(new ItemStack(ModItems.GREENGUM.get()));
+            } else if (stackrandom == 3) {
+                player.addItem(new ItemStack(ModItems.YELLOWGUM.get()));
+            } else if (stackrandom == 4) {
+                player.addItem(new ItemStack(ModItems.PURPLEGUM.get()));
+            } else if (stackrandom == 5) {
+                player.addItem(new ItemStack(ModItems.PINKGUM.get()));
+            } else if (stackrandom == 6) {
+                player.addItem(new ItemStack(ModItems.BLUEGUM.get()));
+            } else if (stackrandom == 7) {
+                player.addItem(new ItemStack(ModItems.ORANGEGUM.get()));
+            }
+            return ItemInteractionResult.SUCCESS;
         }
         return ItemInteractionResult.FAIL;
     }
