@@ -4,6 +4,8 @@ package net.inertia4104.bubblegumMod.block.custom;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
@@ -62,11 +64,11 @@ public class MachineBlock extends HorizontalDirectionalBlock {
                 } else if (stackrandom == 7) {
                     player.addItem(new ItemStack(ModItems.ORANGEGUM.get()));
                 }
-
                 ((ServerLevel) level).sendParticles(ParticleTypes.HAPPY_VILLAGER,
-                        pos.getX(), pos.getY(), pos.getZ(), 15, 0, 0, 0, 1);
+                        pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 15, 0.2, 0.5, 0.2, 1);
                 return ItemInteractionResult.SUCCESS;
             }
+            level.playSound(player, pos, SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.BLOCKS, 0.5f, 1f);
         }
         return ItemInteractionResult.FAIL;
     }
