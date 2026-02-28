@@ -45,25 +45,28 @@ public class MachineBlock extends HorizontalDirectionalBlock {
         int stackrandom = random.nextInt(7 - 1 + 1) + 1;
         if (stack.is(Items.IRON_NUGGET))
         {
-            player.getInventory().removeItem(player.getInventory().selected, 1);
-            if (stackrandom == 1) {
-                player.addItem(new ItemStack(ModItems.REDGUM.get()));
-            } else if (stackrandom == 2) {
-                player.addItem(new ItemStack(ModItems.GREENGUM.get()));
-            } else if (stackrandom == 3) {
-                player.addItem(new ItemStack(ModItems.YELLOWGUM.get()));
-            } else if (stackrandom == 4) {
-                player.addItem(new ItemStack(ModItems.PURPLEGUM.get()));
-            } else if (stackrandom == 5) {
-                player.addItem(new ItemStack(ModItems.PINKGUM.get()));
-            } else if (stackrandom == 6) {
-                player.addItem(new ItemStack(ModItems.BLUEGUM.get()));
-            } else if (stackrandom == 7) {
-                player.addItem(new ItemStack(ModItems.ORANGEGUM.get()));
+            if (!level.isClientSide) {
+                player.getInventory().removeItem(player.getInventory().selected, 1);
+                if (stackrandom == 1) {
+                    player.addItem(new ItemStack(ModItems.REDGUM.get()));
+                } else if (stackrandom == 2) {
+                    player.addItem(new ItemStack(ModItems.GREENGUM.get()));
+                } else if (stackrandom == 3) {
+                    player.addItem(new ItemStack(ModItems.YELLOWGUM.get()));
+                } else if (stackrandom == 4) {
+                    player.addItem(new ItemStack(ModItems.PURPLEGUM.get()));
+                } else if (stackrandom == 5) {
+                    player.addItem(new ItemStack(ModItems.PINKGUM.get()));
+                } else if (stackrandom == 6) {
+                    player.addItem(new ItemStack(ModItems.BLUEGUM.get()));
+                } else if (stackrandom == 7) {
+                    player.addItem(new ItemStack(ModItems.ORANGEGUM.get()));
+                }
+
+                ((ServerLevel) level).sendParticles(ParticleTypes.HAPPY_VILLAGER,
+                        pos.getX(), pos.getY(), pos.getZ(), 15, 0, 0, 0, 1);
+                return ItemInteractionResult.SUCCESS;
             }
-            ((ServerLevel) level).sendParticles(new BlockParticleOption(ParticleTypes.BLOCK, state.getBlock().defaultBlockState()),
-                    pos.getX() + 0.2, pos.getY() + 0.2, pos.getZ(), 90, 0,0,0, 1);
-            return ItemInteractionResult.SUCCESS;
         }
         return ItemInteractionResult.FAIL;
     }
