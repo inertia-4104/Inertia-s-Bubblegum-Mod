@@ -16,7 +16,7 @@ public class ModCreativeModeTabs {
             = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, BubblegumMod.MODID);
 
     public static final Supplier<CreativeModeTab> BUBBLEGUM_MOD_ITEMS_TAB = CREATIVE_MODE_TAB.register("bubblegum_mod_items_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.BUBBLEGUMMACHINE.get())).title(Component.translatable("Inertia's Bubblegum Mod"))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.BUBBLEGUMMACHINE.get())).title(Component.translatable("creativetab.inertiasbubblegummod.bubblegum"))
                     .displayItems((parameters, output) -> {
                         output.accept(ModItems.REDGUM);
                         output.accept(ModItems.BLUEGUM);

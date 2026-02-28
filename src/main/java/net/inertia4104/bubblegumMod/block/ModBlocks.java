@@ -19,7 +19,7 @@ public class ModBlocks {
             DeferredRegister.createBlocks(BubblegumMod.MODID);
 
     public static final DeferredBlock<Block> BUBBLEGUMMACHINE = registerBlock("bubblegummachine",
-            () -> new MachineBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new MachineBlock(BlockBehaviour.Properties.of().noOcclusion().strength(3f)));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block){
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
