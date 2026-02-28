@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#E#",
+    "#O#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:gold_block"
+    },
+    "E": {
+      "item": "minecraft:emerald"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "inertiasbubblegummod:gashapon"
+  }
+}
