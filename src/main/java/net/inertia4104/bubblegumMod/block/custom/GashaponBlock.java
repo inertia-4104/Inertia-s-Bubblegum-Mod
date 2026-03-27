@@ -26,20 +26,23 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-
+// Horizontal Directional Block is the vanilla block with no data. It extends the already defined "Horizonal Directional Block" class and modifies it with method overrides.
 public class GashaponBlock extends HorizontalDirectionalBlock {
+
     public static final MapCodec<GashaponBlock> CODEC = simpleCodec(GashaponBlock::new);
+
+
     private static final VoxelShape SHAPE = Block.box(4.0, 0.0, 4.0, 12.0, 12.0, 12.0);
+    // Voxelshape is the "hitbox" of the block in game
 
     public GashaponBlock(Properties properties) {
         super(properties);
     }
 
+    // Overrides the vanilla minecraft block properties with the provided ones.
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         Random random = new Random();
@@ -66,17 +69,21 @@ public class GashaponBlock extends HorizontalDirectionalBlock {
         return SHAPE;
     }
 
+    // Defines the machine as its own block rather than a standard directional block by overriding the already put codec data
     @Override
     protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
         return CODEC;
     }
 
+    // Defines how the block is placed; contrary to a normal block. This faces the opposite direction of the player. (Block faces to them when placed)
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
 
+    // Depending on the face, some block models may change. However, in the blockstate JSON for these blocks they are all the same.
+    // This override just references the blockstate.json file and builds the block depending on the direction it's facing.
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING);
